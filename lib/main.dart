@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
       ),
       home: SelectNumber(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -84,7 +85,21 @@ class _SelectNumberState extends State<SelectNumber> {
       appBar: AppBar(title: const Text("Select Number")),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Text("Select the number $correctAnswer"),
+            imageList(images),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {});
+              },
+              child: const Text("Refresh"),
+            ),
+            Text("Score is $score")
+          ],
+        ),
       ),
-    )
+    );
   }
 }
